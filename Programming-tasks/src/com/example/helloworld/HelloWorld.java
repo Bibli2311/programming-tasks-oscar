@@ -7,6 +7,8 @@ import java.io.IOException;
 
 public class HelloWorld {
 
+    int cases = 0;
+
     public static String readAllLines(BufferedReader localReader) throws IOException {
         StringBuilder content = new StringBuilder();
         String line;
@@ -17,16 +19,23 @@ public class HelloWorld {
         }
         return content.toString();
     }
-    public static void main(String[] args) throws FileNotFoundException {
+
+    public void doStuff() {
         System.out.println("hellow world");
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/com/example/resources/input.txt"));
+
         try {
-            String lineContent = readAllLines(reader);
-            System.out.println(lineContent);
+            BufferedReader reader = new BufferedReader(new FileReader("src/com/example/resources/input.txt"));
+            cases = 10;
+            String fileContent = readAllLines(reader);
+            System.out.println(fileContent);
         } catch(IOException ex) {
             System.out.println(ex);
         }
+    }
+    public static void main(String[] args) throws FileNotFoundException {
+        HelloWorld myClass = new HelloWorld();
+        myClass.doStuff();
     }
 
 }
