@@ -76,9 +76,15 @@ public class HelloWorld {
            }
            // index for correct rows that is checked for this iteration of loop
            int correctRow =  validIndex(indices);
+           int indexInCorrectRow = indices[correctRow];
 
-           System.out.println("rows: " + allRows[correctRow]);
-           System.out.println("char: " + allRows[correctRow].charAt(indices[correctRow]));
+//           System.out.println("rows: " + allRows[correctRow]);
+//           System.out.println("char: " + allRows[correctRow].charAt(indexInCorrectRow));
+
+           // check if index is not out of bounds
+          if ((indexInCorrectRow - 1) >= 0)  {
+              result += allRows[correctRow].charAt(indexInCorrectRow-1);
+          }
 //
 //           indexForChar = charExists(sRow, c);
 //           // if a character was found and the index for the character is larger or equal to 0
