@@ -8,19 +8,23 @@ import java.util.Scanner;
 public class HelloWorld {
 
     // first row
-    public String[] fRow;
+    public String fRow;
     int cases = 0;
 
     public HelloWorld() {
-        fRow =  new String[]{"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"};
+        fRow = "qwertyuiop[]\\";
+
     }
 
-    public boolean charExists(String list, char myChar) {
-       boolean charFound = false;
-       for (char c: list.toCharArray()) {
-          if (c == myChar) { charFound = true; break; }
-       }
-       return charFound;
+    public int charExists(String list, char myChar) {
+        int charIndex = 0;
+       for (; charIndex < list.length(); charIndex++) {
+          if (list.charAt(charIndex) == myChar) {
+              return charIndex;
+          }
+        }
+
+       return -1;
     };
 
 
@@ -42,7 +46,14 @@ public class HelloWorld {
        System.out.println("input: " + input);
 
        for (char c: input.toCharArray()) {
-
+           // index for char that has been found in any of the keyboard rows
+           int indexForChar = 0;
+           indexForChar = charExists(fRow, c);
+           if (indexForChar != -1) {
+               // print out character left for found key
+//               System.out.println("before: " + indexForChar);
+               System.out.println(fRow.charAt(indexForChar-1));
+           }
        }
     }
     public static void main(String[] args) throws FileNotFoundException {
