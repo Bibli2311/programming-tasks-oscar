@@ -18,9 +18,9 @@ public class HelloWorld {
 
     public HelloWorld() {
         fRow = "1234567890-=";
-        sRow = "qwertyuiop[]\\";
-        tRow = "asdfghjkl;'";
-        foRow = "zxcvbnm,./";
+        sRow = "QWERTYUIOP[]\\";
+        tRow = "ASDFGHJKL;'";
+        foRow = "ZXCVBNM,./";
         allRows = new String[]{fRow, sRow, tRow, foRow};
     }
 
