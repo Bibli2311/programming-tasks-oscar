@@ -1,8 +1,6 @@
 package com.example.helloworld;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class HelloWorld {
@@ -44,18 +42,6 @@ public class HelloWorld {
         return  -1;
     };
 
-
-    public static String readAllLines(BufferedReader localReader) throws IOException {
-        StringBuilder content = new StringBuilder();
-        String line;
-
-        while ((line = localReader.readLine()) != null) {
-           content.append(line);
-           content.append((System.lineSeparator()));
-        }
-        return content.toString();
-    }
-
     public void doStuff() {
 
        Scanner myScan  = new Scanner(System.in);
@@ -76,22 +62,19 @@ public class HelloWorld {
            }
            // index for correct rows that is checked for this iteration of loop
            int correctRow =  validIndex(indices);
-           int indexInCorrectRow = indices[correctRow];
 
-//           System.out.println("rows: " + allRows[correctRow]);
-//           System.out.println("char: " + allRows[correctRow].charAt(indexInCorrectRow));
+           // if key checked now exists (letters like lower-case letters should be ignored)
+           if (correctRow != -1) {
+               int indexInCorrectRow = indices[correctRow];
 
-           // check if index is not out of bounds
-          if ((indexInCorrectRow - 1) >= 0)  {
-              result += allRows[correctRow].charAt(indexInCorrectRow-1);
-          }
-//
-//           indexForChar = charExists(sRow, c);
-//           // if a character was found and the index for the character is larger or equal to 0
-//           if (indexForChar != -1 && (indexForChar-1) >= 0) {
-//               result += sRow.charAt(indexForChar-1);
-//           }
-           
+               // check if index is not out of bounds
+               if ((indexInCorrectRow - 1) >= 0)  {
+                   result += allRows[correctRow].charAt(indexInCorrectRow-1);
+               }
+           }
+           else {
+               if (c == ' ') { result += ' '; }
+           }
        }
 
         System.out.println(result);
