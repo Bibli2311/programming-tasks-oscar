@@ -2,8 +2,8 @@ package com.example.helloworld;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class HelloWorld {
 
@@ -21,17 +21,10 @@ public class HelloWorld {
     }
 
     public void doStuff() {
-        System.out.println("hellow world");
 
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/com/example/resources/input.txt"));
-            cases = 10;
-            String fileContent = readAllLines(reader);
-            System.out.println(fileContent);
-        } catch(IOException ex) {
-            System.out.println(ex);
-        }
+       Scanner myScan  = new Scanner(System.in);
+       String input = myScan.nextLine();
+       System.out.println("input: " + input);
     }
     public static void main(String[] args) throws FileNotFoundException {
         HelloWorld myClass = new HelloWorld();
