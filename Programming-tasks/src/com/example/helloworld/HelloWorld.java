@@ -44,17 +44,19 @@ public class HelloWorld {
        Scanner myScan  = new Scanner(System.in);
        String input = myScan.nextLine();
        System.out.println("input: " + input);
+       String result = "";
 
        for (char c: input.toCharArray()) {
            // index for char that has been found in any of the keyboard rows
            int indexForChar = 0;
            indexForChar = charExists(fRow, c);
-           if (indexForChar != -1) {
-               // print out character left for found key
-//               System.out.println("before: " + indexForChar);
-               System.out.println(fRow.charAt(indexForChar-1));
+           // if a character was found and the index for the character is larger or equal to 0
+           if (indexForChar != -1 && (indexForChar-1) >= 0) {
+               result += fRow.charAt(indexForChar-1);
            }
        }
+
+        System.out.println(result);
     }
     public static void main(String[] args) throws FileNotFoundException {
         HelloWorld myClass = new HelloWorld();
